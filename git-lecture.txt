@@ -1,0 +1,68 @@
+Git
+
+-Git object model: 
+		*blob
+		*tree
+		*commit - doesn't contain the actual changes made in the commit.
+		*tag
+• each file (blob) has a 40 character SHA. Git uses this to find diff .
+• git index is what is committed.
+• .gitconfig - used by all repos , without global- in project's root directory.
+• git branch -d experimental : adds changes to the current branch.
+• git branch -D experimental : doesn't . deletes it.
+• List of commands
+∘ git log
+∘ git add
+∘ git status
+∘ git commit
+∘ git push
+∘ git pull
+∘ git merge
+∘ git tag
+∘ git branch
+∘ git checkout
+∘ git cherry-pick
+∘ git reset
+∘ git rebase
+∘ git revert
+∘ git gui
+∘ gitk
+∘ git remote
+∘ git rebase
+∘ git gc 
+∘ git stash
+• merge is intermediate, rebase= advanced.
+• git add -A includes files you deleted.
+• git reset HEAD file  for undo git add file
+• Setting alias for commands:
+∘ git config --global alias.unadd='reset HEAD --'
+		git config --global alias.unstage='reset HEAD --'
+
+• git rm -r --cached .  (recursively removes all files just added to the index , but retains the working copy)
+• on your first commit, you can't do , git reset HEAD file 
+• git reset .  => doesn't work either.
+• git config --global gets write to ~/.gitconfig
+• local git config is written to repo/config
+• git commit -a : adds all changes since last commit.
+• git diff branch1..branch2
+• git diff branch1...branch2 (from starting point, the difference)
+• git diff HEAD=> what's changed in the working dir since the last commit.
+• git diff --cached =>what's in the index
+• git log -p master..branch => shows all changes b/w master and branch
+• location of repository is stored in git config file : git config --get remote.origin.url
+• git commit --amend to replace already-published commits.
+• to force push, use + sign in front of branch name.
+• it's possible to tag any git object.
+• to ignore files, rather than not tracking them, place file names in .gitignore , inside the top-level of the repo.
+• When you merge/rebase, first fix conflicts by committing . first add files that are under conflict , then git commit -a . now , ready to merge /rebase
+• git rebase -i => opens editor of choice with all commits made since last interaction with branch. you can pick/squash/edit commit. Brilliant!
+• git add -i => patch by patch staging is possible. when you are done, don't type git commit -a though, everything will be staged again.
+•  Git treeishes= > tag, commit made at the tag, branch name referred to as refs/heads/branch or refs/remotes/origin/branch are all pointers to the same thing.
+• tracking branch can be created with : git branch --track bran origin/bran
+• git pull /push without specifying the remote is possible when on a tracking branch
+• git reset --hard HEAD => causes both git diff and git diff --cached to be empty.
+• git checkout  -- README => restores the file to its version in the index so that git diff README shows no differences whereas git checkout HEAD README => restores file to version in HEAD revision.
+• git doesn't expect public history to change. git revert HEAD^ next to last.
+• merging several heads at the same time is possible
+• octopus merge
+• cherry-pick can be used on rare occasions. rebased/cherry-picked commit different from original commit
